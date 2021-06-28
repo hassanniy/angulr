@@ -1,4 +1,4 @@
-name: Code junction build
+name: Code
 on: 
   push:
     branches: 
