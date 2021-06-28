@@ -32,8 +32,10 @@ jobs:
       uses: jakejarvis/s3-sync-action@master
     - name: Upload App to S3 Bucket
       with:
-          aws_s3_bucket: ${{ env.AWS_S3_BUCKET_NAME }}
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          args: --follow-symlinks --delete
+      env:
+          AWS_S3_BUCKET: ${{ env.AWS_S3_BUCKET_NAME }}
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}}}
           aws-region: "us-east-1"
           SOURCE_DIR: "dist"
